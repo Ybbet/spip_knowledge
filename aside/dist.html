@@ -1,0 +1,17 @@
+[(#REM) Menu de navigation dans la page ]
+<BOUCLE_principale (RUBRIQUES) {id_rubrique}>
+<div class="doc-sidebar span3">
+<ul class="nav nav-list doc-sidenav">
+    <B_article>
+    <BOUCLE_article (ARTICLES) {par num titre,titre} {id_rubrique}>
+    <li[(#COMPTEUR_BOUCLE|=={1}|oui)class="active"]>[(#VAL{#}|ancre_url{#TITRE|title2anchor}|lien_ou_expose{#TITRE,''})]</li>
+    </BOUCLE_article>
+    </B_article>
+    <BOUCLE_ssrub (RUBRIQUES) {id_parent} {par num titre, titre}>
+    <li>[(#URL_RUBRIQUE|lien_ou_expose{#TITRE,''})]</li>
+    </BOUCLE_ssrub>
+    <//B_article>
+</ul>
+</div>
+#INCLURE{fond=aside/inc-aside-js}
+</BOUCLE_principale>

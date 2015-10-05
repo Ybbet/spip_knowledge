@@ -1,0 +1,25 @@
+<div class="navbar-inner">
+    <div class="container">
+        <a class="brand pull-right" href="#URL_SITE_SPIP">#NOM_SITE_SPIP</a>
+        <div class="nav-collapse collapse">
+            <ul class="nav">
+                <BOUCLE_racine (RUBRIQUES) {racine} {par num titre,titre}>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">[(#COMPTEUR_BOUCLE).] #TITRE <b class="caret"></b></a>
+                    <B_ssrub>
+                    <ul class="dropdown-menu">
+                        <BOUCLE_ssrub (RUBRIQUES) {id_parent} {par num titre, titre}>
+                        <li>[(#URL_RUBRIQUE|lien_ou_expose{[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] #TITRE,''})]
+                        <B_ssrub2>
+                        <ul>
+                            <BOUCLE_ssrub2 (RUBRIQUES) {id_parent} {par num titre, titre}>
+                            <li>[(#URL_RUBRIQUE|lien_ou_expose{[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] #TITRE,''})]</li></BOUCLE_ssrub2>
+                        </ul>
+                        </B_ssrub2></li></BOUCLE_ssrub>
+                    </ul>
+                    </B_ssrub>
+                </li>
+                </BOUCLE_racine>
+            </ul>
+        </div>
+    </div>
+</div>

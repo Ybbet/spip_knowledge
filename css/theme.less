@@ -1,0 +1,51 @@
+.dropdown-menu {
+    > li {
+        > ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            a {
+                clear: both;
+                color: #333333;
+                display: block;
+                font-weight: normal;
+                line-height: 20px;
+                padding: 3px 20px;
+                padding-left: 40px;
+                white-space: nowrap;
+                &:hover {
+                    background-color: #8f0000;
+                    background-image: linear-gradient(to bottom, #990000, #800000);
+                    background-repeat: repeat-x;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+ul {
+    &.spip {
+        margin-left: 0;
+        overflow: hidden;
+        padding-left: 2.5em;
+        li {
+            clear: left;
+        }
+    }
+}
+
+.article {
+    table {
+        &.spip {
+            tr {
+                td {
+                    .spip_documents {
+                        margin-top: 0;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

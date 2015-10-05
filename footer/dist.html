@@ -1,0 +1,26 @@
+<?php if (isset($GLOBALS['visiteur_session']['statut'])
+  AND $GLOBALS['visiteur_session']['statut']
+  AND include_spip('inc/autoriser')
+    AND autoriser('publierdans','rubrique','#ENV{id_rubrique}')){
+?>
+    <div class="actions pull-right">
+        #BOUTON_ACTION{'Ajouter une page',#URL_ACTION_AUTEUR{zdoc_ajouter_page,#ENV{id_rubrique}},'btn-small btn-primary'}
+    </div>
+<?php } ?>
+
+<div class="actions pull-right">
+        [<a class="btn btn-small btn-primary" href="(#URL_PAGE{spipdf}
+        |parametre_url{spipdf,spipdf_doc_complete}
+        |parametre_url{nom_fichier,[(#NOM_SITE_SPIP|translitteration|strtolower|replace{' ','_'})]}
+        |parametre_url{var_mode,recalcul})">
+    La documentation au format PDF</a>]
+</div>
+
+<p class="credits">
+    Conçu et réalisé par <BOUCLE_aut (AUTEURS) {', '}>[<a href="(#URL_SITE)">]#NOM[(#URL_SITE|?{</a>})]</BOUCLE_aut>
+</p>
+<p class="licence">Code sous licence <a href="http://www.gnu.org/licenses/gpl-3.0.html">GPL 3</a></p>
+<p class="links">
+    <a href="http://www.spip.net/" title="<:site_realise_avec_spip:>">SPIP</a><span class="sep"> - </span>
+    <a href="http://twitter.github.com/bootstrap/" >BootStrap</a>
+</p>

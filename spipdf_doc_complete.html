@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>[(#NOM_SITE_SPIP|textebrut)]</title>
+        [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
+        <style type="text/css">
+                    html {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    body, .page {
+                        font-family: Arial, Verdana, sans-serif;
+                        font-size: 10pt;
+                        line-height: 14pt;
+                        margin: 1cm;
+                        text-align: justify;
+                        background-color: white;
+                        display: block;
+                    }
+                    body {
+                        margin: 0;
+                    }
+                    @page {
+                        sheet-size: A4;
+                        margin-header: 0;
+                        margin-footer: 0;
+                        footer: html_entete_pages;
+                    }
+                    @page sommaire {
+                        sheet-size: A4;
+                        margin-left: 10mm;
+                        margin-right: 10mm;
+                    }
+                    @page nofooter {
+                        odd-header-name: _blank;
+                        even-header-name: _blank;
+                        odd-footer-name: _blank;
+                        even-footer-name: _blank;
+                    }
+                    #documentation {
+                        clear: both;
+                        margin: 1cm;
+                        display: block;
+                    }
+                    h1, h2, h3, h4, h5, h6 {
+                        color: #9B1915;
+                        padding-bottom: 0.5em;
+                        margin-bottom: 1em;
+                        border-bottom: 2px solid #9B1915;
+                        font-family: Arial, Verdana, sans-serif;
+                        clear: both;
+                        font-weight: bold;
+                    }
+                    h1 {
+                        border-bottom: 5px solid #9B1915;
+                    }
+                    h3.spip {
+                        color: #646464;
+                        border-bottom-color: #646464;
+                    }
+                    .articles .article {
+                        display: block;
+                        clear: both;
+                        overflow: hidden;
+                    }
+                    table.spip {
+                        width: 100%;
+                        padding: 0;
+                        margin: 0;
+                    }
+/* TABLE OF CONTENTS */
+div.mpdf_toc {
+    font-family: Arial, Verdana, sans-serif;
+    line-height: 15pt;
+    font-size: 10pt;
+    font-weight: bold;
+}
+a.mpdf_toc_a  {
+    text-decoration: none;
+    color: black;
+}
+div.mpdf_toc_level_0 {      /* Whole line level 0 */
+    line-height: 1.5;
+    margin-left: 0;
+    padding-right: 0em; /* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+}
+span.mpdf_toc_t_level_0 {   /* Title level 0 - may be inside <a> */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12pt;
+    line-height: 17pt;
+}
+span.mpdf_toc_p_level_0 {   /* Page no. level 0 - may be inside <a> */
+}
+div.mpdf_toc_level_1 {      /* Whole line level 1 */
+    margin-left: 2em;
+    text-indent: -2em;
+    padding-right: 0em; /* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+}
+span.mpdf_toc_t_level_1 {   /* Title level 1 */
+    font-style: italic;
+    font-weight: bold;
+}
+span.mpdf_toc_p_level_1  {  /* Page no. level 1 - may be inside <a> */
+}
+div.mpdf_toc_level_2 {      /* Whole line level 2 */
+    margin-left: 4em;
+    text-indent: -2em;
+    padding-right: 0em; /* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+}
+span.mpdf_toc_t_level_2 {   /* Title level 2 */
+}
+span.mpdf_toc_p_level_2 {   /* Page no. level 2 - may be inside <a> */
+}
+div.mpdf_toc_level_3 {      /* Whole line level 3 */
+    margin-left: 6em;
+    text-indent: -2em;
+    padding-right: 0em; /* should match the outdent specified for ToC; 0 is default; suggested value 3em */
+}
+span.mpdf_toc_t_level_3 {   /* Title level 3 */
+}
+span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
+}
+
+
+        </style>
+    </head>
+    <body>
+        <page lib_pdf="mpdf" orientation="P" format="A4" backtop="10mm" backbottom="10mm" backleft="1mm" backright="1mm">
+        <div class="page" style="margin: 0; padding:1px;">
+            <div class="page_garde" style="display: block; height: 29.7cm; overflow: hidden; position: relative; text-align: center; width: 21cm; top:0; left: 0; right: 0; bottom: 0; background-image: url([(#CHEMIN{css/fond_documentation_netapsys.png}|image_passe_partout{794,1123}|image_recadre{794,1123,center,#ffffff}|extraire_attribut{src})]); background-position: center center;">
+                <div style="z-index: 10; position: absolute; top:0; left: 0; right: 0; bottom: 0; float: left; display: block; background-color: transparent;">
+                    <table style="width: 700px; border: 0; margin: 0 auto; text-align: center;" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td style="height: 740px; text-align: center;">[<h1 style="font-size: 28pt; line-height: 30pt; border: none; color: #000000; margin:0; margin-bottom: 0.5em; padding:0;">(#NOM_SITE_SPIP)</h1>]
+                                [<div style="font-size: 12pt; line-height: 16pt; margin: 0;">(#DESCRIPTIF_SITE_SPIP)]</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p style="font-family: Arial,Verdana,sans-serif; font-size: 8pt; font-weight: normal; line-height: 10pt; margin: 0; padding: 0; text-align: center;"><strong>NETAPSYS CONSEIL</strong><br/>
+                                <br/>
+                                124 – 126, rue de Provence – 75008 Paris – www.netapsys.fr – contact@netapsys.fr<br/>
+                                S.A.S. au capital de 1 024 000,00 € - SIRET : 45366499700039 - N.A.F. : 722C -  N.I.I. : FR31453664997<br/>
+                                Organisme de formation enregistré sous le numéro 11 75 41851 75 auprès du préfet de région d’Ile de France</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="clear: both; display: block; height: 1px; width: 100%;"></div>
+            </div>
+            <tocpagebreak paging="on" links="on" toc-bookmarkText="Sommaire" toc-page-selector="sommaire" margin-left="20mm" margin-right="20mm" resetpagenum='1' />
+            <div id="documentation">
+                <B_racine>
+                <BOUCLE_racine (RUBRIQUES) {racine} {par num titre, titre}><tocentry content="[(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="0" />
+                <h1>[(#COMPTEUR_BOUCLE).] [(#TITRE)]</h1>
+                [<div class="descriptif">(#DESCRIPTIF)</div>]
+                [<div class="texte">(#TEXTE)</div>]
+                <B_ssrub>
+                <BOUCLE_ssrub (RUBRIQUES) {id_parent} {par num titre, titre}>
+                <div class="section rubrique rub#ID_RUBRIQUE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="1" />
+                    <h2>[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h2>
+                    [<div class="descriptif">(#DESCRIPTIF)</div>]
+                    [<div class="texte">(#TEXTE)</div>]
+                    <B_ssrub_art>
+                    <div class="articles">
+                        <BOUCLE_ssrub_art (ARTICLES) {id_rubrique} {par num titre, titre}>
+                        <div class="article" id="art#ID_ARTICLE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="2" />
+                            <h3>[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h3>
+                            [<div class="chapo">(#CHAPO)</div>]
+                            [<div class="texte">(#TEXTE)</div>]
+                            [<div class="ps">(#PS)</div>]
+                            [<div class="note">(#NOTES)</div>]
+                        </div>
+                        </BOUCLE_ssrub_art>
+                    </div>
+                    </B_ssrub_art>
+                    <B_ssrub2>
+                    <BOUCLE_ssrub2 (RUBRIQUES) {id_parent} {par num titre, titre}>
+                    <div class="section rubrique rub#ID_RUBRIQUE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="2" />
+                        <h2>[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h2>
+                        [<div class="descriptif">(#DESCRIPTIF)</div>]
+                        [<div class="texte">(#TEXTE)</div>]
+                        <B_ssrub2_art>
+                        <div class="articles">
+                            <BOUCLE_ssrub2_art (ARTICLES) {id_rubrique} {par num titre, titre}>
+                            <div class="article" id="art#ID_ARTICLE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#_ssrub2:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="3" />
+                                <h3>[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#_ssrub2:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h3>
+                                [<div class="chapo">(#CHAPO)</div>]
+                                [<div class="texte">(#TEXTE)</div>]
+                                [<div class="ps">(#PS)</div>]
+                                [<div class="note">(#NOTES)</div>]
+                            </div>
+                            </BOUCLE_ssrub2_art>
+                        </div>
+                        </B_ssrub2_art>
+                    </div>
+                    </BOUCLE_ssrub2>
+                    </B_ssrub2>
+                </div>
+                </BOUCLE_ssrub>
+                </B_ssrub>
+                </BOUCLE_racine>
+                </B_racine>
+            </div>
+        </div>
+        <htmlpagefooter name="entete_pages">
+            <table cellpadding="0" cellspacing="0" border="0" style="width: 19cm; height:15mm; margin: 0 auto; background-color: none; font-family: Arial, Verdana, sans-serif; font-size: 9pt; background-image: url([(#CHEMIN{'css/fond_documentation_netapsys_pied.png'}|image_reduire{794,0}|extraire_attribut{src})]); background-repeat: no-repeat; background-position: top right; background-size: 100% auto;">
+                <tr style="background-color: transparent;">
+                    <td style="width: 65%; text-align: left; background-color: transparent; padding-top: 10px; padding-bottom: 10px;">[(#NOM_SITE_SPIP)]</td>
+                    <td style="width: 35%; text-align: right; background-color: transparent; padding-top: 10px; padding-bottom: 10px;">{PAGENO} sur {nbpg}</td>
+                </tr>
+            </table>
+        </htmlpagefooter>
+        <sethtmlpagefooter name="entete_pages" page="all"> </sethtmlpagefooter>
+        </page>

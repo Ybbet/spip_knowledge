@@ -1,0 +1,61 @@
+<BOUCLE_principale (RUBRIQUES) {id_rubrique}>
+<section class="rubrique rubrique#ID_RUBRIQUE">
+        <div class="main rubrique-main">
+            [<div class="#EDIT{descriptif} descriptif surlignable">(#DESCRIPTIF|adaptive_images|placeholder)</div>]
+            [<div class="#EDIT{texte} texte surlignable">(#TEXTE|adaptive_images|placeholder)</div>]
+        </div>
+    <?php if (isset($GLOBALS['visiteur_session']['statut'])
+      AND $GLOBALS['visiteur_session']['statut']
+      AND include_spip('inc/autoriser')
+        AND autoriser('publierdans','rubrique','#ID_RUBRIQUE')){
+    ?>
+    <div class="actions actions-ajouter">
+        [(#BOUTON_ACTION{'<i class="icon-plus-sign"></i> Ajouter un chapitre ici',#URL_ACTION_AUTEUR{zdoc_ajouter_chapitre,#ID_RUBRIQUE},'btn-primary btn-mini'})]
+    </div>
+    <?php } ?>
+
+    <BOUCLE_arts(ARTICLES){par num titre,titre}{id_rubrique}>
+    <article class="article article#ID_ARTICLE[(#STATUT|=={prop}|oui)prop]" id="[(#TITRE|title2anchor)]">
+        <header class="article-header">
+            <h2><span class="#EDIT{titre}">#TITRE</span>[
+            <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE|placeholder{''})</small>]</h2>
+        </header>
+        <div class="main article-main">
+            [<div class="#EDIT{chapo} chapo surlignable">(#CHAPO|adaptive_images|placeholder)</div>]
+            [<div class="#EDIT{texte} texte surlignable">(#TEXTE|adaptive_images|placeholder)</div>]
+        </div>
+
+        [<footer class="muted">
+            <div class="#EDIT{ps} ps surlignable">(#PS|adaptive_images|placeholder)</div>
+        </footer>]
+    <?php if (isset($GLOBALS['visiteur_session']['statut'])
+      AND $GLOBALS['visiteur_session']['statut']
+      AND include_spip('inc/autoriser')
+        AND autoriser('publierdans','rubrique','#ID_RUBRIQUE')){
+    ?>
+    <div class="actions actions-moderer">
+        [<span class="muted" title="Rang">\[(#RANG)\]</span>]
+        [(#BOUTON_ACTION{'<i class="icon-trash"></i>',#URL_ACTION_AUTEUR{instituer_objet,article-#ID_ARTICLE-poubelle,#SELF},'btn-danger btn-mini','','Supprimer ce chapitre'})]
+        [(#STATUT|=={prop}|non)
+        [(#BOUTON_ACTION{'<i class="icon-remove"></i>',#URL_ACTION_AUTEUR{instituer_objet,article-#ID_ARTICLE-prop,#SELF},'btn-mini','','Dépublier ce chapitre'})]
+        ]
+        [(#STATUT|=={prop}|oui)
+        [(#BOUTON_ACTION{'<i class="icon-ok"></i>',#URL_ACTION_AUTEUR{instituer_objet,article-#ID_ARTICLE-publie,#SELF},'btn-mini','','Publier ce chapitre'})]
+        ]
+    </div>
+    <div class="actions actions-ajouter">
+        [(#BOUTON_ACTION{'<i class="icon-plus-sign"></i> Ajouter un chapitre ici',#URL_ACTION_AUTEUR{zdoc_ajouter_chapitre,#ID_RUBRIQUE-#ID_ARTICLE},'btn-primary btn-mini'})]
+    </div>
+    <?php } ?>
+    </article>
+    </BOUCLE_arts>
+    <footer>
+        [<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+    </footer>
+    </B_arts>
+    <div class="actions actions-ajouter">
+        [(#BOUTON_ACTION{'<i class="icon-plus-sign"></i> Ajouter un chapitre ici',#URL_ACTION_AUTEUR{zdoc_ajouter_chapitre,#ID_RUBRIQUE},'btn-primary btn-mini'})]
+    </div>
+    <//B_arts>
+</section>
+</BOUCLE_principale>

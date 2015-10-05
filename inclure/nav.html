@@ -8,13 +8,7 @@
                     <B_ssrub>
                     <ul class="dropdown-menu">
                         <BOUCLE_ssrub (RUBRIQUES) {id_parent} {par num titre, titre}>
-                        <li>[(#URL_RUBRIQUE|lien_ou_expose{[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] #TITRE,''})]
-                        <B_ssrub2>
-                        <ul>
-                            <BOUCLE_ssrub2 (RUBRIQUES) {id_parent} {par num titre, titre}>
-                            <li>[(#URL_RUBRIQUE|lien_ou_expose{[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] #TITRE,''})]</li></BOUCLE_ssrub2>
-                        </ul>
-                        </B_ssrub2></li></BOUCLE_ssrub>
+                        <li>[(#URL_RUBRIQUE|lien_ou_expose{[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] #TITRE,''})]</li></BOUCLE_ssrub>
                     </ul>
                     </B_ssrub>
                 </li>

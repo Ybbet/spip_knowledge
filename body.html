@@ -1,0 +1,30 @@
+<body data-spy="scroll" data-target=".doc-sidebar">
+    <div class="page">
+        [<nav class="navbar navbar-inverse navbar-fixed navbar-fixed-top" id="nav">
+            (#INCLURE{fond=inclure/nav,env}|navbar_responsive)
+        </nav>]
+        <div class="header" id="header">
+            <div class="container">
+            <INCLURE{fond=header/#ENV{type-page},env} />
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="wrapper" id="wrapper">
+                <div class="content primary" id="content">
+                    <INCLURE{fond=breadcrumb/#ENV{type-page},env} />
+                    <INCLURE{fond=content/#ENV{type-page},env} />
+                </div>
+            </div>
+            <aside class="aside secondary" id="aside">
+                <INCLURE{fond=aside/#ENV{type-page},env} />
+            </aside>
+        </div>
+
+        <div class="footer" id="footer">
+            <div class="container">
+            <INCLURE{fond=footer/#ENV{type-page},env} />
+            </div>
+        </div>
+    </div>
+</body>

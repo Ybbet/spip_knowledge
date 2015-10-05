@@ -1,15 +1,18 @@
 <?php
+
 /**
- * Options du plugin Knowledgeau chargement
+ * Options du plugin Knowledgeau chargement.
  *
  * @plugin     Knowledge
+ *
  * @copyright  2015
  * @author     Teddy Payet
  * @licence    BY-NC-ND
- * @package    SPIP\Knowledge\Options
  */
+if (!defined('_ECRIRE_INC_VERSION')) {
+    return;
+}
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
-
-
-?>
+ini_set('xdebug.max_nesting_level', 200);
+ini_set('memory_limit', '128M');
+ini_set('pcre.backtrack_limit', '10000000');

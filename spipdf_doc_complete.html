@@ -128,26 +128,7 @@ span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
     <body>
         <page lib_pdf="mpdf" orientation="P" format="A4" backtop="10mm" backbottom="10mm" backleft="1mm" backright="1mm">
         <div class="page" style="margin: 0; padding:1px;">
-            <div class="page_garde" style="display: block; height: 29.7cm; overflow: hidden; position: relative; text-align: center; width: 21cm; top:0; left: 0; right: 0; bottom: 0; background-image: url([(#CHEMIN{css/fond_documentation_netapsys.png}|image_passe_partout{794,1123}|image_recadre{794,1123,center,#ffffff}|extraire_attribut{src})]); background-position: center center;">
-                <div style="z-index: 10; position: absolute; top:0; left: 0; right: 0; bottom: 0; float: left; display: block; background-color: transparent;">
-                    <table style="width: 700px; border: 0; margin: 0 auto; text-align: center;" cellpadding="0" cellspacing="0" border="0">
-                        <tr>
-                            <td style="height: 740px; text-align: center;">[<h1 style="font-size: 28pt; line-height: 30pt; border: none; color: #000000; margin:0; margin-bottom: 0.5em; padding:0;">(#NOM_SITE_SPIP)</h1>]
-                                [<div style="font-size: 12pt; line-height: 16pt; margin: 0;">(#DESCRIPTIF_SITE_SPIP)]</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><p style="font-family: Arial,Verdana,sans-serif; font-size: 8pt; font-weight: normal; line-height: 10pt; margin: 0; padding: 0; text-align: center;"><strong>NETAPSYS CONSEIL</strong><br/>
-                                <br/>
-                                124 – 126, rue de Provence – 75008 Paris – www.netapsys.fr – contact@netapsys.fr<br/>
-                                S.A.S. au capital de 1 024 000,00 € - SIRET : 45366499700039 - N.A.F. : 722C -  N.I.I. : FR31453664997<br/>
-                                Organisme de formation enregistré sous le numéro 11 75 41851 75 auprès du préfet de région d’Ile de France</p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div style="clear: both; display: block; height: 1px; width: 100%;"></div>
-            </div>
+            [(#INCLURE{fond=inclure/page_garde, env})]
             <tocpagebreak paging="on" links="on" toc-bookmarkText="Sommaire" toc-page-selector="sommaire" margin-left="20mm" margin-right="20mm" resetpagenum='1' />
             <div id="documentation">
                 <B_racine>
@@ -204,7 +185,7 @@ span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
             </div>
         </div>
         <htmlpagefooter name="entete_pages">
-            <table cellpadding="0" cellspacing="0" border="0" style="width: 19cm; height:15mm; margin: 0 auto; background-color: none; font-family: Arial, Verdana, sans-serif; font-size: 9pt; background-image: url([(#CHEMIN{'css/fond_documentation_netapsys_pied.png'}|image_reduire{794,0}|extraire_attribut{src})]); background-repeat: no-repeat; background-position: top right; background-size: 100% auto;">
+            <table cellpadding="0" cellspacing="0" border="0" style="width: 19cm; height:15mm; margin: 0 auto; background-color: none; font-family: Arial, Verdana, sans-serif; font-size: 9pt; background-image: url([(#CHEMIN{'css/fond_documentation_pied.png'}|image_reduire{794,0}|extraire_attribut{src})]); background-repeat: no-repeat; background-position: top right; background-size: 100% auto;">
                 <tr style="background-color: transparent;">
                     <td style="width: 65%; text-align: left; background-color: transparent; padding-top: 10px; padding-bottom: 10px;">[(#NOM_SITE_SPIP)]</td>
                     <td style="width: 35%; text-align: right; background-color: transparent; padding-top: 10px; padding-bottom: 10px;">{PAGENO} sur {nbpg}</td>

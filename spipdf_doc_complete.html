@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>[(#NOM_SITE_SPIP|textebrut)]</title>
-        [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
+        <title>[(#NOM_SITE_SPIP|image_reduire{600,600}|image_aplatir{jpg,#ffffff})]</title>
+        [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|image_reduire{600,600}|image_aplatir{jpg,#ffffff})" />]
         <style type="text/css">
                     html {
                         margin: 0;
@@ -63,10 +63,25 @@
                         clear: both;
                         overflow: hidden;
                     }
+                    .spip_documents_center {
+                        width: 100%;
+                        text-align: center;
+                        display: block;
+                        clear: both;
+                    }
                     table.spip {
                         width: 100%;
                         padding: 0;
                         margin: 0;
+                        clear: both;
+                        border: 0;
+                        border-spacing: 0px;
+                    }
+                    table.spip > tbody > tr > td {
+                        padding: 0.5em;
+                    }
+                    table.spip > tbody > tr.row_odd > td {
+                        background-color: #f9f9f9;
                     }
 /* TABLE OF CONTENTS */
 div.mpdf_toc {
@@ -135,20 +150,20 @@ span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
                 <BOUCLE_racine (RUBRIQUES) {racine} {par num titre, titre}><tocentry content="[(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="0" />
                 <h1>[(#COMPTEUR_BOUCLE).] [(#TITRE)]</h1>
                 [<div class="descriptif">(#DESCRIPTIF)</div>]
-                [<div class="texte">(#TEXTE)</div>]
+                [<div class="texte">(#TEXTE|image_reduire{600,600}|image_aplatir{jpg,#ffffff})</div>]
                 <B_ssrub>
                 <BOUCLE_ssrub (RUBRIQUES) {id_parent} {par num titre, titre}>
                 <div class="section rubrique rub#ID_RUBRIQUE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="1" />
                     <h2>[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h2>
                     [<div class="descriptif">(#DESCRIPTIF)</div>]
-                    [<div class="texte">(#TEXTE)</div>]
+                    [<div class="texte">(#TEXTE|image_reduire{600,600}|image_aplatir{jpg,#ffffff})</div>]
                     <B_ssrub_art>
                     <div class="articles">
                         <BOUCLE_ssrub_art (ARTICLES) {id_rubrique} {par num titre, titre}>
                         <div class="article" id="art#ID_ARTICLE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="2" />
                             <h3>[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h3>
                             [<div class="chapo">(#CHAPO)</div>]
-                            [<div class="texte">(#TEXTE)</div>]
+                            [<div class="texte">(#TEXTE|image_reduire{600,600}|image_aplatir{jpg,#ffffff})</div>]
                             [<div class="ps">(#PS)</div>]
                             [<div class="note">(#NOTES)</div>]
                         </div>
@@ -160,14 +175,14 @@ span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
                     <div class="section rubrique rub#ID_RUBRIQUE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="2" />
                         <h2>[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h2>
                         [<div class="descriptif">(#DESCRIPTIF)</div>]
-                        [<div class="texte">(#TEXTE)</div>]
+                        [<div class="texte">(#TEXTE|image_reduire{600,600}|image_aplatir{jpg,#ffffff})</div>]
                         <B_ssrub2_art>
                         <div class="articles">
                             <BOUCLE_ssrub2_art (ARTICLES) {id_rubrique} {par num titre, titre}>
                             <div class="article" id="art#ID_ARTICLE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#_ssrub2:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="3" />
                                 <h3>[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#_ssrub2:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h3>
                                 [<div class="chapo">(#CHAPO)</div>]
-                                [<div class="texte">(#TEXTE)</div>]
+                                [<div class="texte">(#TEXTE|image_reduire{600,600}|image_aplatir{jpg,#ffffff})</div>]
                                 [<div class="ps">(#PS)</div>]
                                 [<div class="note">(#NOTES)</div>]
                             </div>

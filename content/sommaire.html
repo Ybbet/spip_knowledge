@@ -9,16 +9,22 @@
         <ul>
             <BOUCLE_ssrub (RUBRIQUES) {id_parent} {par num titre, titre}>
             <li class="sous_rub">[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] <a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+                <B_articles_ssrub>
+                <ul>
+                    <BOUCLE_articles_ssrub (ARTICLES) {id_rubrique} {par num titre, titre}>
+                    <li class="art">[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] <a href="#URL_ARTICLE">[(#TITRE)]</a></li></BOUCLE_articles_ssrub>
+                </ul>
+                </B_articles_ssrub>
                 <B_ssrub2>
                 <ul>
                 <BOUCLE_ssrub2 (RUBRIQUES) {id_parent} {par num titre, titre}>
                 <li class="sous_rub">[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] <a href="#URL_RUBRIQUE">[(#TITRE)]</a>
-                    <B_articles_ss>
+                    <B_articles_ssrub2>
                     <ul>
-                        <BOUCLE_articles_ss (ARTICLES) {id_rubrique} {par num titre, titre}>
-                        <li class="art">[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#_ssrub2:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] <a href="#URL_ARTICLE">[(#TITRE)]</a></li></BOUCLE_articles_ss>
+                        <BOUCLE_articles_ssrub2 (ARTICLES) {id_rubrique} {par num titre, titre}>
+                        <li class="art">[(#_racine:COMPTEUR_BOUCLE).][(#_ssrub:COMPTEUR_BOUCLE).][(#_ssrub2:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] <a href="#URL_ARTICLE">[(#TITRE)]</a></li></BOUCLE_articles_ssrub2>
                     </ul>
-                    </B_articles_ss>
+                    </B_articles_ssrub2>
                 </li></BOUCLE_ssrub2>
                 </ul>
                 </B_ssrub2>

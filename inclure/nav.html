@@ -11,6 +11,12 @@
                         <li>[(#URL_RUBRIQUE|lien_ou_expose{[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] #TITRE,''})]</li></BOUCLE_ssrub>
                     </ul>
                     </B_ssrub>
+                    <ul class="dropdown-menu">
+                        <BOUCLE_articles (ARTICLES) {id_rubrique} {par num titre, titre}>
+                        <li>[(#URL_RUBRIQUE|lien_ou_expose{[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] #TITRE,''})]</li></BOUCLE_articles>
+                    </ul>
+
+                    <//B_ssrub>
                 </li>
                 </BOUCLE_racine>
             </ul>

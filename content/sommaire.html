@@ -31,6 +31,14 @@
             </li></BOUCLE_ssrub>
         </ul>
         </B_ssrub>
+        <B_articles>
+        <ul>
+        <BOUCLE_articles (ARTICLES) {id_rubrique} {par num titre, titre}>
+            <li class="sous_rub">[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] <a href="#URL_RUBRIQUE[#(#TITRE|title2anchor)]">[(#TITRE)]</a></li>
+        </BOUCLE_articles>
+        </ul>
+        </B_articles>
+        <//B_ssrub>
     </li>
 </BOUCLE_racine>
 </ul>

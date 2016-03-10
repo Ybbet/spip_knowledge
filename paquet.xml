@@ -19,7 +19,7 @@
 	<necessite nom="numero" compatibilite="[2.0.6;[" />
 	<necessite nom="minibando" compatibilite="[1.2.4;[" />
 
-	<lib nom="mpdf" lien="http://mpdf1.com/repos/MPDF60.zip" />
+	<lib nom="mpdf" lien="http://mpdfonline.com/repos/MPDF60.zip" />
 
 	<pipeline nom="autoriser" inclure="knowledge_autorisations.php" />
 

@@ -3,86 +3,86 @@
     <head>
         <title>[(#NOM_SITE_SPIP|image_reduire{600,600}|image_aplatir{jpg,#ffffff})]</title>
         [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|image_reduire{600,600}|image_aplatir{jpg,#ffffff})" />]
-        <style type="text/css">
-                    html {
-                        margin: 0;
-                        padding: 0;
-                    }
-                    body, .page {
-                        font-family: Arial, Verdana, sans-serif;
-                        font-size: 10pt;
-                        line-height: 14pt;
-                        margin: 1cm;
-                        text-align: justify;
-                        background-color: white;
-                        display: block;
-                    }
-                    body {
-                        margin: 0;
-                    }
-                    @page {
-                        sheet-size: A4;
-                        margin-header: 0;
-                        margin-footer: 0;
-                        footer: html_entete_pages;
-                    }
-                    @page sommaire {
-                        sheet-size: A4;
-                        margin-left: 10mm;
-                        margin-right: 10mm;
-                    }
-                    @page nofooter {
-                        odd-header-name: _blank;
-                        even-header-name: _blank;
-                        odd-footer-name: _blank;
-                        even-footer-name: _blank;
-                    }
-                    #documentation {
-                        clear: both;
-                        margin: 1cm;
-                        display: block;
-                    }
-                    h1, h2, h3, h4, h5, h6 {
-                        color: #9B1915;
-                        padding-bottom: 0.5em;
-                        margin-bottom: 1em;
-                        border-bottom: 2px solid #9B1915;
-                        font-family: Arial, Verdana, sans-serif;
-                        clear: both;
-                        font-weight: bold;
-                    }
-                    h1 {
-                        border-bottom: 5px solid #9B1915;
-                    }
-                    h3.spip {
-                        color: #646464;
-                        border-bottom-color: #646464;
-                    }
-                    .articles .article {
-                        display: block;
-                        clear: both;
-                        overflow: hidden;
-                    }
-                    .spip_documents_center {
-                        width: 100%;
-                        text-align: center;
-                        display: block;
-                        clear: both;
-                    }
-                    table.spip {
-                        width: 100%;
-                        padding: 0;
-                        margin: 0;
-                        clear: both;
-                        border: 0;
-                        border-spacing: 0px;
-                    }
-                    table.spip > tbody > tr > td {
-                        padding: 0.5em;
-                    }
-                    table.spip > tbody > tr.row_odd > td {
-                        background-color: #f9f9f9;
-                    }
+<style type="text/css">
+html {
+    margin: 0;
+    padding: 0;
+}
+body, .page {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 10pt;
+    line-height: 14pt;
+    margin: 1cm;
+    text-align: justify;
+    background-color: white;
+    display: block;
+}
+body {
+    margin: 0;
+}
+@page {
+    sheet-size: A4;
+    margin-header: 0;
+    margin-footer: 0;
+    footer: html_entete_pages;
+}
+@page sommaire {
+    sheet-size: A4;
+    margin-left: 10mm;
+    margin-right: 10mm;
+}
+@page nofooter {
+    odd-header-name: _blank;
+    even-header-name: _blank;
+    odd-footer-name: _blank;
+    even-footer-name: _blank;
+}
+#documentation {
+    clear: both;
+    margin: 1cm;
+    display: block;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #9B1915;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #9B1915;
+    font-family: Arial, Verdana, sans-serif;
+    clear: both;
+    font-weight: bold;
+}
+h1 {
+    border-bottom: 5px solid #9B1915;
+}
+h3.spip {
+    color: #646464;
+    border-bottom-color: #646464;
+}
+.articles .article {
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+.spip_documents_center {
+    width: 100%;
+    text-align: center;
+    display: block;
+    clear: both;
+}
+table.spip {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    clear: both;
+    border: 0;
+    border-spacing: 0px;
+}
+table.spip > tbody > tr > td {
+    padding: 0.5em;
+}
+table.spip > tbody > tr.row_odd > td {
+    background-color: #f9f9f9;
+}
 /* TABLE OF CONTENTS */
 div.mpdf_toc {
     font-family: Arial, Verdana, sans-serif;
@@ -136,9 +136,7 @@ span.mpdf_toc_t_level_3 {   /* Title level 3 */
 }
 span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
 }
-
-
-        </style>
+</style>
     </head>
     <body>
         <page lib_pdf="mpdf" orientation="P" format="A4" backtop="10mm" backbottom="10mm" backleft="1mm" backright="1mm">
@@ -195,6 +193,20 @@ span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
                 </div>
                 </BOUCLE_ssrub>
                 </B_ssrub>
+                    <B_racine_art>
+                        <div class="articles">
+                            <BOUCLE_racine_art (ARTICLES) {id_rubrique} {par num titre, titre}>
+                                <div class="article" id="art#ID_ARTICLE"><tocentry content="[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE|attribut_html)]" level="1" />
+                                    <h3>[(#_racine:COMPTEUR_BOUCLE).][(#COMPTEUR_BOUCLE).] [(#TITRE)]</h3>
+                                    [<div class="chapo">(#CHAPO)</div>]
+                                    [<div class="texte">(#TEXTE|image_reduire{600,600}|image_aplatir{jpg,#ffffff})</div>]
+                                    [<div class="ps">(#PS)</div>]
+                                    [<div class="note">(#NOTES)</div>]
+                                </div>
+                            </BOUCLE_racine_art>
+                        </div>
+                    </B_racine_art>
+                    <pagebreak />
                 </BOUCLE_racine>
                 </B_racine>
             </div>
@@ -209,3 +221,4 @@ span.mpdf_toc_p_level_3 {   /* Page no. level 3 - may be inside <a> */
         </htmlpagefooter>
         <sethtmlpagefooter name="entete_pages" page="all"> </sethtmlpagefooter>
         </page>
+[(#FILTRE{abs_url})]
